@@ -1,68 +1,3 @@
-We're creating the product grid passing the dynamic data through states and increasing the price here to click on button.
-
-
-State pass and update the data from outside of the same component. And used the spread operator and concept of grand parent > parent > child
-
-
-header.js::
-
-import React from 'react';
-import * as t from 'prop-types';
-
-
-export class Header extends React.Component{
- render(){
-
-  return (
-
-  
-  
-    <div className="col-sm-2">
-    <h3>Product Name</h3>
-      ProductName:{this.props.name?this.props.name:'no product name mentioned'}
-      <br/>
-      ProductTitle:{this.props.children}
-      <br/>
-      <button className="btn btn-default">{this.props.price}</button>
-      <hr/>
-      <br/>
-      <button onClick={this.props.inrPrice} className="btn btn-primary">increase price</button>
-    </div>
-    
-  
-  
-
-)
-}
-}
-
-
-Header.propTypes = {
-
-product:t.object,
-
-
-};
-
-
-footer.js::
-
-import React from 'react';
-import {Header} from './header';
-
-
-export class Footer extends React.Component{
-  render(){
-    return(
-     
-        <Header {...this.props} />
-        
-    )
-  }
-}
-
-index.js
-
 import React from 'react';
 import {render} from 'react-dom';
 import {Footer} from './footer';
@@ -148,5 +83,3 @@ return(
 }
 }
 render(<App />, document.getElementById('root'));
-
-
